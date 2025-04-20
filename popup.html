@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SecureVault - Key-Value Manager</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h2><i class="fas fa-vault"></i> SecureVault</h2>
+      <div class="actions">
+        <button id="exportBtn" title="Export Data"><i class="fas fa-download"></i></button>
+        <button id="importBtn" title="Import Data"><i class="fas fa-upload"></i></button>
+        <input type="file" id="importFile" accept=".json" style="display: none;" />
+        <button id="clearAllBtn" title="Clear All Data"><i class="fas fa-trash-alt"></i></button>
+      </div>
+    </header>
+
+    <div class="search-bar">
+      <i class="fas fa-search"></i>
+      <input type="text" id="searchInput" placeholder="Search keys and values..." />
+    </div>
+
+    <div class="input-section">
+      <div class="form-group">
+        <label for="group">Group</label>
+        <div class="input-with-icon">
+          <i class="fas fa-folder"></i>
+          <input id="group" placeholder="e.g., Work, Personal, Finance" list="groupList" />
+          <datalist id="groupList"></datalist>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="key">Key</label>
+        <div class="input-with-icon">
+          <i class="fas fa-key"></i>
+          <input id="key" placeholder="e.g., Email, Username, Password" />
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="value">Value</label>
+        <div class="input-with-icon value-input">
+          <i class="fas fa-lock"></i>
+          <input id="value" placeholder="e.g., your-email@example.com" type="text" />
+          <button id="togglePasswordBtn" class="toggle-visibility" title="Toggle Visibility">
+            <i class="fas fa-eye"></i>
+          </button>
+          <button id="generatePasswordBtn" class="generate-password" title="Generate Strong Password">
+            <i class="fas fa-magic"></i>
+          </button>
+        </div>
+      </div>
+      
+      <button id="saveBtn" class="primary-btn">Save <i class="fas fa-save"></i></button>
+    </div>
+
+    <div class="filter-section">
+      <div class="filter-chips" id="filterChips">
+        <span class="filter-chip active" data-filter="all">All</span>
+        <!-- Group chips will be added dynamically -->
+      </div>
+    </div>
+
+    <div id="output" class="data-section"></div>
+
+    <div id="toast" class="toast"></div>
+  </div>
+
+  <!-- Password Generator Modal -->
+  <div id="passwordModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Generate Password</h3>
+      
+      <div class="password-settings">
+        <div class="form-group">
+          <label for="passwordLength">Length</label>
+          <input type="range" id="passwordLength" min="8" max="32" value="16" />
+          <span id="lengthValue">16</span>
+        </div>
+        
+        <div class="checkbox-group">
+          <label><input type="checkbox" id="includeUpper" checked /> Uppercase</label>
+          <label><input type="checkbox" id="includeLower" checked /> Lowercase</label>
+          <label><input type="checkbox" id="includeNumbers" checked /> Numbers</label>
+          <label><input type="checkbox" id="includeSymbols" checked /> Symbols</label>
+        </div>
+      </div>
+      
+      <div class="generated-password">
+        <input type="text" id="generatedPassword" readonly />
+        <button id="copyPasswordBtn" title="Copy Password"><i class="fas fa-copy"></i></button>
+        <button id="refreshPasswordBtn" title="Generate New Password"><i class="fas fa-sync-alt"></i></button>
+      </div>
+      
+      <button id="usePasswordBtn" class="primary-btn">Use This Password</button>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

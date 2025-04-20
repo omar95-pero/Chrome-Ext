@@ -1,0 +1,22 @@
+{
+    "manifest_version": 3,
+    "name": "SecureVault - Password & Key-Value Manager",
+    "version": "1.0",
+    "description": "Securely save and manage your passwords and other key-value data organized by groups.",
+    "permissions": ["storage", "clipboardWrite"],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "icon.png",
+        "32": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+      }
+    },
+    "icons": {
+      "16": "icon.png",
+      "32": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  }
