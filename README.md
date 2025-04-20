@@ -11,8 +11,6 @@ Perfect for developers, testers, or anyone who needs a quick way to save structu
 
 ## 🚀 Features
 
-- 🗂️ Grouped key-value storage
-- ✏️ Add/edit key-value pairs quickly
 - 🔍 View saved data in a clean interface
 - 🔐 Stored using Chrome's secure local storage
 - 📴 Works completely offline — no login needed
